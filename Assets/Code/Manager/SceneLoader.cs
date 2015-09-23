@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class SceneLoader : MonoBehaviour {
+public class SceneLoader : MonoBehaviour
+{
 
     public string m_sceneToLoad;
 
@@ -17,8 +18,8 @@ public class SceneLoader : MonoBehaviour {
 
     public void loadScene()
     {
-        
+
         Application.LoadLevel(m_sceneToLoad);
-       
+
     }
 }

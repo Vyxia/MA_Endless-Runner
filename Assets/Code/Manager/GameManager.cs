@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
-public class GameManager : MonoBehaviour {
+public class GameManager : MonoBehaviour
+{
 
     [SerializeField]
     private Player player;
@@ -15,14 +16,14 @@ public class GameManager : MonoBehaviour {
     private Text scoreText;
     private float deathCountdown = 5f;
 
-	// Use this for initialization
-	void Start () {
+    void Start()
+    {
 
         getManagerComponents();
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    void Update()
+    {
 
         scoreText.text = (scoreCounter.ToString("F2") + "s");
 
@@ -31,7 +32,7 @@ public class GameManager : MonoBehaviour {
             checkForInput();
         }
         checkPlayerState();
-	}
+    }
 
     private void checkForInput()
     {

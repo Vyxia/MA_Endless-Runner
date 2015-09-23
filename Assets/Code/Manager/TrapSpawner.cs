@@ -3,7 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
-public class TrapSpawner : MonoBehaviour {
+public class TrapSpawner : MonoBehaviour
+{
 
     [SerializeField]
     private List<GameObject> spawnPoints;
@@ -12,11 +13,7 @@ public class TrapSpawner : MonoBehaviour {
     private float timeToSpawnNextTrap = 2f;
     private bool allowedToGenerate = true;
 
-	// Use this for initialization
-	void Start () {}
-	
-	// Update is called once per frame
-	void Update ()
+    void Update()
     {
 
         timeToSpawnNextTrap -= 1f * Time.deltaTime;
@@ -24,9 +21,9 @@ public class TrapSpawner : MonoBehaviour {
         if (timeToSpawnNextTrap <= 0f && allowedToGenerate == true)
         {
             timeToSpawnNextTrap = 2f;
-           spawnTrap(getRandomTrap(trapPrefabs), getTrapSpawnpoint);
+            spawnTrap(getRandomTrap(trapPrefabs), getTrapSpawnpoint);
         }
-	}
+    }
 
     private GameObject spawnTrap(GameObject trap, Vector3 position)
     {
@@ -37,7 +34,7 @@ public class TrapSpawner : MonoBehaviour {
     private GameObject getRandomTrap(List<GameObject> availableTrap)
     {
 
-            return availableTrap[Random.Range(0, trapPrefabs.Count)];
+        return availableTrap[Random.Range(0, trapPrefabs.Count)];
     }
 
     private Vector3 getTrapSpawnpoint

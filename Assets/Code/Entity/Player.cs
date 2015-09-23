@@ -3,7 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
-public class Player : Entity {
+public class Player : Entity
+{
 
     private GameObject firstChunk;
     private MapGenerator mapper;
@@ -11,25 +12,24 @@ public class Player : Entity {
     private bool dead = false;
 
 
-	public override void Start () 
+    public override void Start()
     {
 
         base.Start();
 
         mapper = GameObject.Find("ChunkManager").GetComponent<MapGenerator>();
         firstChunk = mapper.getFirstChunk;
-        this.gameObject.transform.position = new Vector3(firstChunk.transform.position.x,firstChunk.transform.position.y+0.8f,-3);
-	}
-	
-	// Update is called once per frame
-	public override void Update () 
+        this.gameObject.transform.position = new Vector3(firstChunk.transform.position.x, firstChunk.transform.position.y + 0.8f, -3);
+    }
+
+    public override void Update()
     {
 
         if (allowMovement == true)
         {
             moveEntity();
         }
-	}
+    }
 
     public override void moveEntity()
     {
@@ -40,7 +40,7 @@ public class Player : Entity {
         }
         else
         {
-            
+
             this.gameObject.transform.position += new Vector3(0, -0.09f);
         }
     }

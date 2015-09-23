@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Enemy : Entity {
+public class Enemy : Entity
+{
 
     private bool allowMovement = true;
     private Animator animController;
@@ -10,18 +11,16 @@ public class Enemy : Entity {
     [SerializeField]
     private GameObject fireBall;
 
-	// Use this for initialization
-	public override void Start () 
+    public override void Start()
     {
-   
+
         base.Start();
 
         animController = this.gameObject.GetComponent<Animator>();
         animController.SetBool("Attack", false);
-	}
-	
-	// Update is called once per frame
-	public override void Update () 
+    }
+
+    public override void Update()
     {
 
         base.Update();
@@ -31,7 +30,7 @@ public class Enemy : Entity {
         {
             castSpell();
         }
-	}
+    }
 
     void castSpell()
     {
@@ -41,8 +40,15 @@ public class Enemy : Entity {
             animController.SetBool("Attack", true);
             allowMovement = false;
             hasAttacked = true;
-            Instantiate(fireBall, new Vector3(this.transform.position.x,this.transform.position.y-0.2f,this.transform.position.z-1), Quaternion.identity);
+            Instantiate(fireBall, new Vector3(this.transform.position.x, this.transform.position.y - 0.2f, this.transform.position.z - 1), Quaternion.identity);
         }
+    }
+
+    void resetCasting()
+    {
+
+        allowMovement = true;
+        animController.SetBool("Attack", false);
     }
 
     public override void moveEntity()
@@ -52,5 +58,5 @@ public class Enemy : Entity {
         {
             this.transform.position += new Vector3(0, -0.09f);
         }
-    }   
+    }
 }

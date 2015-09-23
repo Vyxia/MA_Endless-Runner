@@ -16,11 +16,11 @@ public class GameInit : MonoBehaviour
 
     public void Awake()
     {
-/*#if UNITY_EDITOR
-        Application.LoadLevel(m_sceneToLoad);
-#else
-        startFadeIn();
-#endif*/
+        /*#if UNITY_EDITOR
+                Application.LoadLevel(m_sceneToLoad);
+        #else
+                startFadeIn();
+        #endif*/
         startFadeIn();
     }
 
@@ -39,7 +39,7 @@ public class GameInit : MonoBehaviour
                 float i = 1f;//alpha value
                 while (m_logoImage.GetComponent<Image>().color.a > 0f)//loop tot we het plaatje hebben uit gefade
                 {
-                    i -= m_fadeSpeed*Time.deltaTime;
+                    i -= m_fadeSpeed * Time.deltaTime;
                     m_logoImage.GetComponent<Image>().color = (new Color(1, 1, 1, i));//verander de alpha van het plaatje
                     yield return null;
                 }

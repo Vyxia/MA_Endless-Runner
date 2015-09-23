@@ -14,27 +14,25 @@ public class MapGenerator : MonoBehaviour
     private int chunkCounter = 0;
     [SerializeField]
     private float chunkMoveSpeed = 0;
-    
-    // Use this for initialization
+
     void Start()
     {
 
-       activeChunks.Add(generateChunk(chunkList[0], new Vector3(0, (getScreenHeight() + getChunkHeight(chunkList[0])))));
-       generateStartingChunks();
+        activeChunks.Add(generateChunk(chunkList[0], new Vector3(0, (getScreenHeight() + getChunkHeight(chunkList[0])))));
+        generateStartingChunks();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+
         if (allowChunkMovement == true)
         {
-        moveChunks(activeChunks);
+            moveChunks(activeChunks);
         }
         if (allowChunkGeneration == true)
         {
             generateChunks();
-          
+
         }
     }
 
@@ -70,7 +68,7 @@ public class MapGenerator : MonoBehaviour
 
         for (int i = 0; i < chunks.Count; i++)
         {
-            chunks[i].transform.position += new Vector3(0,-chunkMoveSpeed);
+            chunks[i].transform.position += new Vector3(0, -chunkMoveSpeed);
         }
     }
 
@@ -80,12 +78,12 @@ public class MapGenerator : MonoBehaviour
         Vector2 screenPosition = Camera.main.WorldToScreenPoint(checkedChunk.transform.position);
         if (screenPosition.y <= getChunkHeight(checkedChunk) + -(Screen.height))
         {
-                
+
             return true;
         }
-        else 
-        {    
-            return false; 
+        else
+        {
+            return false;
         }
     }
 
@@ -124,10 +122,10 @@ public class MapGenerator : MonoBehaviour
             generateChunkAfterLast();
         }
     }
-       
-    
 
-   public GameObject getFirstChunk
+
+
+    public GameObject getFirstChunk
     {
 
         get
@@ -138,18 +136,18 @@ public class MapGenerator : MonoBehaviour
     }
 
     public float getChunkSpeed
-   {
+    {
 
         get
-       {
-           return chunkMoveSpeed;
-       }
-       set
-       {
-           chunkMoveSpeed = value;
-       }
-   }
-   
+        {
+            return chunkMoveSpeed;
+        }
+        set
+        {
+            chunkMoveSpeed = value;
+        }
+    }
+
     public bool setChunkGeneration
     {
 
@@ -162,7 +160,7 @@ public class MapGenerator : MonoBehaviour
         {
             allowChunkGeneration = value;
             allowChunkMovement = value;
-           
+
         }
     }
 
