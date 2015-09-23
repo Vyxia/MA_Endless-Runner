@@ -45,13 +45,6 @@ public class Enemy : Entity {
         }
     }
 
-    void resetCasting()
-    {
-        
-        allowMovement = true;
-        animController.SetBool("Attack", false);
-    }
-
     public override void moveEntity()
     {
 
